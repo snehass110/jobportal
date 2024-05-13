@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Jobs Guru</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="#" style="text-align: center;">
+            <img src="{% static 'ic.svg' %}" alt="Your Logo" width="30" height="30" class="d-inline-block align-top rounded-circle">
+            <div style="font-family: 'Pacifico', cursive; color: rgb(45, 163, 218);" ><b>Jobs Guru</b></div>
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary me-3">Home</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary me-3">About</button>
+                </li>
+                <li>
+                    <form class="d-flex">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="color: rgb(70, 161, 223);">
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary ms-3"  onclick="window.location.href='/log2/'">Jobseeker log-in</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary ms-3" onclick="window.location.href='/log/'">Company log-in</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<h2 align="center">Applied jobs</h2>
+<br><br>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+
+      <th scope="col">JOB ROLE</th>
+      <th scope="col">COMPANY</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for i,j in jobs %}
+    <tr>
+
+      <td>{{i}}</td>
+      <td>{{j}}</td>
+
+    </tr>
+
+
+  </tbody>
+
+
+{% endfor %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

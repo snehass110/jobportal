@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Jobs Guru</title>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="#" style="text-align: center;">
+            <img src="{% static 'ic.svg' %}" alt="Your Logo" width="30" height="30" class="d-inline-block align-top rounded-circle">
+            <div style="font-family: 'Pacifico', cursive; color: rgb(45, 163, 218);" ><b>Jobs Guru</b></div>
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary me-3">Home</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary me-3">About</button>
+                </li>
+                <li>
+                    <form class="d-flex">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="color: rgb(70, 161, 223);">
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary ms-3"  onclick="window.location.href='/log2/'">Jobseeker log-in</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary ms-3" onclick="window.location.href='/log/'">Company log-in</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br><br>
+
+
+
+<div>
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">User details</button>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">{{ user.uname }}</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body" style="background-color:rgb( 197, 226, 255)">
+      <h2>Contact info:</h2>
+    <p>Email: {{ user.email }}</p><br>
+    <p>Qualification: {{ user.hq }}</p><br>
+      <p>Date of birth: {{user.dob}}</p><br>
+      <button class="btn btn-outline-primary " onclick="window.location.href='/update/{{user.id}}'"  >Update</button>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div class="row">
+        <div class="col-md-4">
+            <div class="container mt-3">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="{% static '2.jpg' %}" alt="Card image" style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">View jobs</h4>
+                        <p class="card-text">Find suitable jobs here
+                        </p>
+                        <a href="/openings/{{user.id}}" class="btn btn-outline-primary ">Openings</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-4">
+            <div class="container mt-3">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="{% static '4.jpg' %}" alt="Card image" style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">Registered Companies</h4>
+                        <p class="card-text">List of Companies
+                        </p>
+                        <a href="/list_company/" class="btn btn-outline-primary ">View List</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-4">
+            <div class="container mt-3">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="{% static '3.jpg' %}" alt="Card image" style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">Job applied</h4>
+                        <p class="card-text">list applied jobs
+                        </p>
+                        <a href="/applied_job/{{user.id}}" class="btn btn-outline-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+ </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

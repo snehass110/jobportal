@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Jobs Guru</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="#" style="text-align: center;">
+            <img src="{% static 'ic.svg' %}" alt="Your Logo" width="30" height="30" class="d-inline-block align-top rounded-circle">
+            <div style="font-family: 'Pacifico', cursive; color: rgb(45, 163, 218);" ><b>Jobs Guru</b></div>
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary me-3">Home</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary me-3">About</button>
+                </li>
+                <li>
+                    <form class="d-flex">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="color: rgb(70, 161, 223);">
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary ms-3"  onclick="window.location.href='/log2/'">Jobseeker log-in</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary ms-3" onclick="window.location.href='/log/'">Company log-in</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--<center>-->
+   <form class="form-horizontal form-control"style="background-color:rgb( 236, 245, 254); color:rgb( 29, 142, 255)" method="post" enctype="multipart/form-data" action="#">
+       {% csrf_token %}
+<h1>Job details</h1>
+       <br>
+       <h5><b>Job details:</b></h5>
+         <div class="form-group">
+        <label class="control-label col-sm-2" >Company name:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control"  name="company_name" value="{{a.cname}}">
+        </div>
+             <div class="form-group">
+        <label class="control-label col-sm-2" >Designation:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control"  name="designation" value="{{a.job_title}}">
+        </div><br>
+                 <h5><b>Applicant details:</b></h5>
+
+
+          <div class="form-group">
+        <label class="control-label col-sm-2" >Name:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control"  name="name" value="{{s.uname}}">
+        </div>
+                 <div class="form-group">
+        <label class="control-label col-sm-2" >Email:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control"  name="email" value="{{s.email}}">
+        </div>
+                              <div class="form-group">
+        <label class="control-label col-sm-2" >Qualification:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control"  name="qualification"></div>
+
+       <label class="control-label col-sm-2" >Phone_no:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control"  name="phone_no">
+        </div>
+ <label class="control-label col-sm-2" >Experience:</label>
+        <div class="col-sm-6">
+            <select class="form-control"  name="experience" >
+                <optgroup label="Select work type">
+                    <option >0-1</option>
+                    <option >1-2</option>
+                    <option >2-3</option>
+                    <option>3-4</option>
+                    <option >4-5</option>
+                    <option>5-6</option>
+                  </optgroup>
+              </select>
+        </div>
+        <label class="control-label col-sm-2" >Resume:</label>
+        <div class="col-sm-6">
+          <input type="file" class="form-control"  name="resume">
+        </div>
+<br>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-6">
+            <button type="submit" class="btn btn-outline-primary ">Submit</button>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+   </form>
+</body>
+</html>
